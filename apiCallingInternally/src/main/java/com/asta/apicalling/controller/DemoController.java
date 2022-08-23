@@ -23,6 +23,7 @@ public class DemoController {
     @GetMapping( value = "/callingApi")
     public String getDisplay(){
         String uri = "http://localhost:8080/display";
+        RestTemplate restTemplate =new RestTemplate();
         String result = restTemplate.getForObject(uri, String.class);
         return result;
     }
@@ -30,6 +31,7 @@ public class DemoController {
     @GetMapping( value = "/countries")
     public List<Object> getCountries(){
         String uri = "http://restcountries.eu/rest/v2/all";
+        RestTemplate restTemplate =new RestTemplate();
         Object[] countries = restTemplate.getForObject(uri, Object[].class);
         return Arrays.asList(countries);
     }
